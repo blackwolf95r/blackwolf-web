@@ -1,5 +1,4 @@
-
-<!DOCTYPE html>
+DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -8,1146 +7,644 @@
 <title>AYANO / BLACKWOLF</title>
 <meta name="description" content="AYANO / BLACKWOLF - المطور">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@400;500;600;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-    --red: #d00020;
-    --red-light: #ff173d;
-    --gray: #a1a1aa;
-    --white: #ededed;
-    --muted: #85858f;
-    --black: #080808;
-    --card: #111114;
-    --border: rgba(255,255,255,.09);
-    --glow: rgba(208,0,32,.18);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-body {
-    background: var(--black);
-    color: var(--white);
-    font-family: 'Cairo', sans-serif;
-    overflow-x: hidden;
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: -1;
-    background:
-        radial-gradient(circle at 15% 20%, rgba(208,0,32,.10), transparent 35%),
-        radial-gradient(circle at 85% 65%, rgba(161,161,170,.06), transparent 35%);
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.container {
-    width: min(1120px, 90%);
-    margin: auto;
-}
-
-section {
-    padding: 90px 0;
-}
-
-.section-title {
-    font-family: 'Cairo', sans-serif;
-    font-size: clamp(25px, 4vw, 38px);
-    text-align: center;
-    margin-bottom: 14px;
-    font-weight: 800;
-}
-
-.section-title span {
-    color: var(--red);
-}
-
-.section-desc {
-    color: var(--muted);
-    text-align: center;
-    margin-bottom: 45px;
-    line-height: 1.8;
-}
-
-.accent {
-    color: var(--red);
-}
-
-/* NAVBAR */
-
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: rgba(8,8,8,.88);
-    backdrop-filter: blur(18px);
-    border-bottom: 1px solid var(--border);
-}
-
-nav {
-    height: 75px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 19px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    direction: ltr;
-}
-
-.logo span {
-    color: var(--red);
-}
-
-.nav-links {
-    display: flex;
-    gap: 25px;
-    align-items: center;
-}
-
-.nav-links a {
-    font-size: 12px;
-    color: var(--muted);
-    transition: .3s;
-}
-
-.nav-links a:hover {
-    color: var(--red-light);
-}
-
-.menu-btn {
-    display: none;
-    background: none;
-    border: 0;
-    color: white;
-    font-size: 27px;
-    cursor: pointer;
-}
-
-/* HERO */
-
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding-top: 100px;
-}
-
-.hero-content {
-    display: grid;
-    grid-template-columns: 1.2fr .8fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.hero-tag {
-    display: inline-block;
-    padding: 9px 16px;
-    border: 1px solid rgba(208,0,32,.4);
-    color: var(--red-light);
-    background: var(--glow);
-    border-radius: 30px;
-    font-size: 11px;
-    letter-spacing: 1px;
-    margin-bottom: 25px;
-}
-
-.hero h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(38px, 6vw, 68px);
-    line-height: 1.4;
-    letter-spacing: -2px;
-    direction: ltr;
-    text-align: right;
-}
-
-.hero h1 span {
-    color: var(--red);
-    display: block;
-}
-
-.hero-subtitle {
-    color: var(--gray);
-    margin-top: 20px;
-    line-height: 2;
-    font-size: 15px;
-    max-width: 540px;
-}
-
-.hero-quote {
-    margin-top: 20px;
-    color: var(--muted);
-    font-style: italic;
-    font-size: 13px;
-    direction: ltr;
-    text-align: right;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-top: 32px;
-}
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 23px;
-    border-radius: 7px;
-    font-size: 12px;
-    font-weight: 700;
-    transition: .3s;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background: var(--red);
-    color: white;
-    border: 1px solid var(--red);
-}
-
-.btn-primary:hover {
-    background: var(--red-light);
-    box-shadow: 0 0 25px var(--glow);
-    transform: translateY(-3px);
-}
-
-.btn-outline {
-    border: 1px solid var(--border);
-    color: var(--white);
-}
-
-.btn-outline:hover {
-    border-color: var(--red);
-    color: var(--red-light);
-    transform: translateY(-3px);
-}
-
-.hero-image {
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-
-.hero-image::before {
-    content: "";
-    position: absolute;
-    width: 280px;
-    height: 280px;
-    background: var(--red);
-    filter: blur(120px);
-    opacity: .2;
-}
-
-.hero-image img {
-    position: relative;
-    width: min(100%, 350px);
-    aspect-ratio: 1;
-    object-fit: cover;
-    border-radius: 20px;
-    border: 1px solid rgba(208,0,32,.5);
-    box-shadow: 0 0 50px rgba(208,0,32,.18);
-}
-
-/* ABOUT */
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-}
-
-.panel {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 13px;
-    padding: 30px;
-    transition: .3s;
-}
-
-.panel:hover {
-    border-color: rgba(208,0,32,.45);
-    transform: translateY(-5px);
-}
-
-.panel h3 {
-    font-family: 'Cairo', sans-serif;
-    font-size: 17px;
-    margin-bottom: 18px;
-}
-
-.panel p {
-    color: var(--muted);
-    line-height: 2;
-    font-size: 13px;
-}
-
-/* TECH STACK */
-
-.tech-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 17px;
-}
-
-.tech-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 11px;
-    padding: 25px 15px;
-    text-align: center;
-    transition: .3s;
-}
-
-.tech-card:hover {
-    border-color: var(--red);
-    transform: translateY(-6px);
-}
-
-.tech-icon {
-    font-size: 30px;
-    margin-bottom: 14px;
-}
-
-.tech-card h3 {
-    font-size: 13px;
-    margin-bottom: 7px;
-}
-
-.tech-card p {
-    font-size: 11px;
-    color: var(--muted);
-}
-
-/* SKILLS */
-
-.skills {
-    max-width: 750px;
-    margin: auto;
-}
-
-.skill {
-    margin-bottom: 25px;
-}
-
-.skill-info {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    margin-bottom: 10px;
-}
-
-.skill-info span:last-child {
-    color: var(--gray);
-}
-
-.skill-bar {
-    height: 6px;
-    background: #242428;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.skill-progress {
-    height: 100%;
-    width: 0;
-    background: linear-gradient(90deg, #7f0014, var(--red-light));
-    border-radius: 20px;
-    transition: width 1.5s ease;
-}
-
-/* ARCHITECTURE */
-
-.arch-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.arch-card {
-    padding: 28px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-}
-
-.arch-card .number {
-    color: var(--red);
-    font-family: 'Orbitron', sans-serif;
-    font-size: 25px;
-    margin-bottom: 18px;
-    direction: ltr;
-    text-align: right;
-}
-
-.arch-card h3 {
-    margin-bottom: 12px;
-    font-size: 15px;
-}
-
-.arch-card p {
-    color: var(--muted);
-    line-height: 2;
-    font-size: 12px;
-}
-
-/* PROJECTS */
-
-.project-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 35px;
-    align-items: center;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 15px;
-    padding: 30px;
-}
-
-.project-visual {
-    min-height: 240px;
-    border-radius: 12px;
-    background:
-        radial-gradient(circle at center, rgba(208,0,32,.25), transparent 65%),
-        #090909;
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 30px;
-    color: var(--red);
-    letter-spacing: 4px;
-    direction: ltr;
-}
-
-.project-info h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 22px;
-    margin-bottom: 15px;
-    direction: ltr;
-    text-align: right;
-}
-
-.project-info p {
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 2;
-}
-
-.tags {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin: 20px 0;
-}
-
-.tag {
-    padding: 7px 11px;
-    border-radius: 5px;
-    background: rgba(208,0,32,.1);
-    color: #ff647a;
-    font-size: 10px;
-    direction: ltr;
-}
-
-/* NEXORA */
-
-.nexora {
-    text-align: center;
-    background:
-        radial-gradient(circle at center, rgba(208,0,32,.12), transparent 65%),
-        var(--card);
-    border: 1px solid var(--border);
-    border-radius: 15px;
-    padding: 60px 25px;
-}
-
-.nexora h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 30px;
-    color: var(--red);
-    margin-bottom: 15px;
-}
-
-.nexora p {
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 2.5;
-    max-width: 600px;
-    margin: auto;
-}
-
-/* GITHUB */
-
-.github-box {
-    text-align: center;
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 40px 20px;
-    border-radius: 13px;
-}
-
-.github-box h3 {
-    font-family: 'Cairo', sans-serif;
-    margin-bottom: 15px;
-}
-
-.github-box p {
-    color: var(--muted);
-    font-size: 13px;
-    margin-bottom: 25px;
-}
-
-/* PHILOSOPHY */
-
-.philosophy {
-    text-align: center;
-    padding: 70px 20px;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-}
-
-.philosophy blockquote {
-    font-family: 'Cairo', sans-serif;
-    font-size: clamp(18px, 4vw, 29px);
-    line-height: 2;
-    font-weight: 700;
-}
-
-.philosophy span {
-    color: var(--red);
-}
-
-/* CONTACT */
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    max-width: 750px;
-    margin: auto;
-}
-
-.contact-card {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    padding: 25px;
-    border-radius: 12px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    transition: .3s;
-}
-
-.contact-card:hover {
-    border-color: var(--red);
-    transform: translateY(-4px);
-}
-
-.contact-icon {
-    width: 48px;
-    height: 48px;
-    display: grid;
-    place-items: center;
-    border-radius: 10px;
-    background: rgba(208,0,32,.12);
-    color: var(--red-light);
-    font-size: 22px;
-    flex-shrink: 0;
-}
-
-.contact-card h3 {
-    font-size: 14px;
-    margin-bottom: 6px;
-}
-
-.contact-card p {
-    color: var(--muted);
-    font-size: 12px;
-    direction: ltr;
-    text-align: right;
-}
-
-/* FOOTER */
-
-footer {
-    border-top: 1px solid var(--border);
-    padding: 45px 0;
-    text-align: center;
-}
-
-footer h4 {
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-    direction: ltr;
-}
-
-footer .sub {
-    color: var(--muted);
-    font-size: 12px;
-}
-
-footer .qt {
-    color: var(--red);
-    font-size: 12px;
-    margin-top: 15px;
-    font-style: italic;
-}
-
-.copyright {
-    color: #666;
-    font-size: 10px;
-    margin-top: 25px;
-    letter-spacing: 1px;
-    line-height: 2;
-}
-
-/* ANIMATIONS */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(25px);
-    transition: opacity .7s ease, transform .7s ease;
-}
-
-.reveal.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* RESPONSIVE */
-
-@media(max-width: 850px) {
-    .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 45px;
-    }
-
-    .hero h1 {
-        text-align: center;
-    }
-
-    .hero-quote {
-        text-align: center;
-    }
-
-    .hero-subtitle {
-        margin-inline: auto;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .hero-image img {
-        width: min(75%, 300px);
-    }
-
-    .tech-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .arch-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .project-card {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media(max-width: 600px) {
-    section {
-        padding: 75px 0;
-    }
-
-    .menu-btn {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 75px;
-        left: 0;
-        width: 100%;
-        padding: 25px;
-        background: #0d0d0f;
-        border-bottom: 1px solid var(--border);
-        flex-direction: column;
-        gap: 22px;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .about-grid,
-    .arch-grid,
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-        font-size: 38px;
-    }
-
-    .panel {
-        padding: 23px;
-    }
+    --red:#d00020;
+    --red-light:#ff173d;
+    --gray:#a1a1aa;
+    --white:#ededed;
+    --muted:#85858f;
+    --black:#080808;
+    --card:#111114;
+    --border:rgba(255,255,255,.09);
+    --glow:rgba(208,0,32,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:Cairo,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(circle at 15% 20%,rgba(208,0,32,.10),transparent 35%),radial-gradient(circle at 85% 65%,rgba(161,161,170,.06),transparent 35%)}
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,90%);margin:auto}
+section{padding:90px 0}
+.section-title{font-size:clamp(25px,4vw,38px);text-align:center;margin-bottom:14px;font-weight:800}
+.section-title span,.accent{color:var(--red)}
+.section-desc{color:var(--muted);text-align:center;margin-bottom:45px;line-height:1.8}
+
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(8,8,8,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+nav{height:75px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:Orbitron,sans-serif;font-size:19px;font-weight:800;letter-spacing:2px;direction:ltr}
+.logo span{color:var(--red)}
+.nav-links{display:flex;gap:22px;align-items:center}
+.nav-links a{font-size:12px;color:var(--muted);transition:.3s}
+.nav-links a:hover{color:var(--red-light)}
+.menu-btn{display:none;background:none;border:0;color:white;font-size:27px;cursor:pointer}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:100px}
+.hero-content{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center}
+.hero-tag{display:inline-block;padding:9px 16px;border:1px solid rgba(208,0,32,.4);color:var(--red-light);background:var(--glow);border-radius:30px;font-size:11px;letter-spacing:1px;margin-bottom:25px}
+.hero h1{font-family:Orbitron,sans-serif;font-size:clamp(38px,6vw,68px);line-height:1.4;letter-spacing:-2px;direction:ltr;text-align:right}
+.hero h1 span{color:var(--red);display:block}
+.hero-subtitle{color:var(--gray);margin-top:20px;line-height:2;font-size:15px;max-width:540px}
+.hero-quote{margin-top:20px;color:var(--muted);font-size:13px}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 23px;border-radius:7px;font-size:12px;font-weight:700;transition:.3s;cursor:pointer}
+.btn-primary{background:var(--red);color:white;border:1px solid var(--red)}
+.btn-primary:hover{background:var(--red-light);transform:translateY(-3px)}
+.btn-outline{border:1px solid var(--border);color:var(--white)}
+.btn-outline:hover{border-color:var(--red);color:var(--red-light);transform:translateY(-3px)}
+.hero-image{position:relative;display:flex;justify-content:center}
+.hero-image img{position:relative;width:min(100%,350px);aspect-ratio:1;object-fit:cover;border-radius:20px;border:1px solid rgba(208,0,32,.5);box-shadow:0 0 50px rgba(208,0,32,.18)}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:30px;transition:.3s}
+.panel:hover{border-color:rgba(208,0,32,.45);transform:translateY(-5px)}
+.panel h3{font-size:17px;margin-bottom:18px}
+.panel p{color:var(--muted);line-height:2;font-size:13px}
+.tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
+.tech-card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:25px 15px;text-align:center;transition:.3s}
+.tech-card:hover{border-color:var(--red);transform:translateY(-6px)}
+.tech-icon{font-size:30px;margin-bottom:14px}
+.tech-card h3{font-size:13px;margin-bottom:7px}
+.tech-card p{font-size:11px;color:var(--muted)}
+.skills{max-width:750px;margin:auto}
+.skill{margin-bottom:25px}
+.skill-info{display:flex;justify-content:space-between;font-size:12px;margin-bottom:10px}
+.skill-info span:last-child{color:var(--gray)}
+.skill-bar{height:6px;background:#242428;border-radius:20px;overflow:hidden}
+.skill-progress{height:100%;width:0;background:linear-gradient(90deg,#7f0014,var(--red-light));border-radius:20px;transition:width 1.5s ease}
+.arch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.arch-card{padding:28px;background:var(--card);border:1px solid var(--border);border-radius:12px}
+.arch-card .number{color:var(--red);font-family:Orbitron,sans-serif;font-size:25px;margin-bottom:18px;direction:ltr}
+.arch-card h3{margin-bottom:12px;font-size:15px}
+.arch-card p{color:var(--muted);line-height:2;font-size:12px}
+.project-card{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:15px;padding:30px}
+.project-visual{min-height:240px;border-radius:12px;background:radial-gradient(circle at center,rgba(208,0,32,.25),transparent 65%),#090909;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:Orbitron,sans-serif;font-size:30px;color:var(--red);letter-spacing:4px;direction:ltr}
+.project-info h3{font-family:Orbitron,sans-serif;font-size:22px;margin-bottom:15px;direction:ltr}
+.project-info p{color:var(--muted);font-size:13px;line-height:2}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
+.tag{padding:7px 11px;border-radius:5px;background:rgba(208,0,32,.1);color:#ff647a;font-size:10px;direction:ltr}
+.nexora{text-align:center;background:radial-gradient(circle at center,rgba(208,0,32,.12),transparent 65%),var(--card);border:1px solid var(--border);border-radius:15px;padding:60px 25px}
+.nexora h3{font-family:Orbitron,sans-serif;font-size:30px;color:var(--red);margin-bottom:15px}
+.nexora p{color:var(--muted);font-size:13px;line-height:2.5;max-width:600px;margin:auto}
+.github-box{text-align:center;background:var(--card);border:1px solid var(--border);padding:40px 20px;border-radius:13px}
+.github-box h3{margin-bottom:15px}
+.github-box p{color:var(--muted);font-size:13px;margin-bottom:25px}
+.philosophy{text-align:center;padding:70px 20px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.philosophy blockquote{font-size:clamp(18px,4vw,29px);line-height:2;font-weight:700}
+.philosophy span{color:var(--red)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:750px;margin:auto}
+.contact-card{display:flex;align-items:center;gap:18px;padding:25px;border-radius:12px;background:var(--card);border:1px solid var(--border);transition:.3s}
+.contact-card:hover{border-color:var(--red);transform:translateY(-4px)}
+.contact-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:10px;background:rgba(208,0,32,.12);color:var(--red-light);font-size:22px;flex-shrink:0}
+.contact-card h3{font-size:14px;margin-bottom:6px}
+.contact-card p{color:var(--muted);font-size:12px;direction:ltr}
+footer{border-top:1px solid var(--border);padding:45px 0;text-align:center}
+footer h4{font-family:Orbitron,sans-serif;letter-spacing:2px;margin-bottom:12px;direction:ltr}
+footer .sub{color:var(--muted);font-size:12px}
+footer .qt{color:var(--red);font-size:12px;margin-top:15px}
+.copyright{color:#666;font-size:10px;margin-top:25px;letter-spacing:1px;line-height:2}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease}
+.reveal.show{opacity:1;transform:translateY(0)}
+
+/* QURAN LIBRARY - isolated styles */
+.quran-section{background:#090909;position:relative}
+.quran-heading{text-align:center;margin-bottom:35px}
+.quran-heading small{color:var(--red);font-family:Orbitron,sans-serif;letter-spacing:3px}
+.quran-heading h2{font-size:38px;margin:12px 0}
+.quran-heading h2 span{color:var(--red)}
+.quran-heading p{color:var(--muted)}
+.quran-app{position:relative;isolation:isolate;overflow:hidden;background:#0d0d10;border:1px solid rgba(208,0,32,.25);border-radius:18px;padding:25px;color:#ededed;font-family:Amiri,serif}
+.quran-stars{position:absolute;inset:0;pointer-events:none;z-index:-1}
+.quran-star{position:absolute;width:2px;height:2px;border-radius:50%;background:white;animation:quranTwinkle 3s infinite alternate}
+@keyframes quranTwinkle{from{opacity:.15}to{opacity:.9}}
+.quran-header{text-align:center;padding:20px 0}
+.quran-header h2{color:#ff173d;font-size:42px}
+.quran-header p{color:#a1a1aa}
+.quran-search{max-width:450px;margin:20px auto}
+.quran-search input{width:100%;padding:14px 18px;background:#111114;border:1px solid rgba(255,255,255,.12);border-radius:10px;color:white;outline:none;font-family:Amiri,serif;font-size:17px}
+.quran-search input:focus{border-color:#d00020}
+.quran-title{text-align:center;margin:25px 0;color:#ff173d;font-size:22px}
+.quran-app .readers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px}
+.quran-app .reader-card,.quran-app .surah-item{background:#151518;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:15px 10px;text-align:center;cursor:pointer;transition:.3s}
+.quran-app .reader-card:hover,.quran-app .surah-item:hover{border-color:#d00020;transform:translateY(-4px)}
+.quran-app .reader-card.selected{border-color:#ff173d;box-shadow:0 0 18px rgba(208,0,32,.2)}
+.quran-app .avatar{width:45px;height:45px;margin:0 auto 10px;border-radius:50%;background:rgba(208,0,32,.15);display:grid;place-items:center;color:#ff173d}
+.quran-app .avatar svg{width:25px;height:25px;fill:#ff173d}
+.quran-app .reader-name{font-size:15px;font-weight:700}
+.quran-app .surah-count{color:#85858f;font-size:12px;margin-top:5px}
+.quran-app .surahs-container{display:none;margin-top:30px}
+.quran-app .surahs-container.active{display:block}
+.quran-app .back-btn{padding:10px 20px;border-radius:8px;background:#171719;border:1px solid rgba(255,255,255,.15);color:white;cursor:pointer;font-family:Cairo,sans-serif}
+.quran-app .selected-reader-info{text-align:center;color:#ff173d;margin:20px 0;font-size:20px}
+.quran-app .surahs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:10px}
+.quran-app .surah-number{font-size:12px;color:#ff173d}
+.quran-app .surah-name{font-size:17px;color:#eee}
+.quran-app .surah-item.playing{border-color:#ff173d;background:#261116}
+.audio-player{position:fixed;bottom:0;left:0;right:0;background:rgba(12,12,14,.97);border-top:2px solid #d00020;padding:12px 18px;z-index:2000;display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap;backdrop-filter:blur(18px)}
+.audio-player.hidden{display:none}
+.player-info{color:white;text-align:center;flex:1;min-width:140px}
+.player-info strong{color:#ff173d}
+.audio-player audio{max-width:500px;width:100%;height:36px}
+.close-player{background:none;border:1px solid #555;color:white;border-radius:50%;width:34px;height:34px;cursor:pointer}
+.quran-toast{position:fixed;top:90px;left:50%;transform:translateX(-50%);background:#171719;border:1px solid #d00020;color:white;padding:10px 20px;border-radius:10px;z-index:3000;font-family:Cairo,sans-serif}
+@media(max-width:850px){
+.hero-content{grid-template-columns:1fr;text-align:center;gap:45px}
+.hero h1,.hero-quote{text-align:center}
+.hero-subtitle{margin-inline:auto}
+.hero-buttons{justify-content:center}
+.hero-image img{width:min(75%,300px)}
+.tech-grid{grid-template-columns:repeat(2,1fr)}
+.arch-grid{grid-template-columns:1fr 1fr}
+.project-card{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+section{padding:75px 0}
+.menu-btn{display:block}
+.nav-links{display:none;position:absolute;top:75px;left:0;width:100%;padding:25px;background:#0d0d0f;border-bottom:1px solid var(--border);flex-direction:column;gap:22px}
+.nav-links.active{display:flex}
+.about-grid,.arch-grid,.contact-grid{grid-template-columns:1fr}
+.hero h1{font-size:38px}
+.panel{padding:23px}
+.quran-app{padding:14px}
+.quran-app .readers-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.quran-app .surahs-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 </style>
 </head>
 
 <body>
-
 <header>
-    <div class="container">
-        <nav>
-            <a href="#home" class="logo">🍀 <span>BLACK</span>WOLF</a>
-
-            <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">☰</button>
-
-            <div class="nav-links" id="navLinks">
-                <a href="#home">الرئيسية</a>
-                <a href="#about">من أنا</a>
-                <a href="#stack">التقنيات</a>
-                <a href="#projects">المشاريع</a>
-                <a href="#contact">التواصل</a>
-            </div>
-        </nav>
-    </div>
+<div class="container">
+<nav>
+<a href="#home" class="logo">🍀 <span>BLACK</span>WOLF</a>
+<button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">☰</button>
+<div class="nav-links" id="navLinks">
+<a href="#home">الرئيسية</a>
+<a href="#about">من أنا</a>
+<a href="#stack">التقنيات</a>
+<a href="#projects">المشاريع</a>
+<a href="#quran">المصحف الشريف</a>
+<a href="#contact">التواصل</a>
+</div>
+</nav>
+</div>
 </header>
 
 <main>
-
-<!-- HERO -->
 <section class="hero" id="home">
-    <div class="container">
-        <div class="hero-content">
-
-            <div class="hero-text reveal">
-                <div class="hero-tag">Welcome to my World</div>
-
-                <h1>
-                    🍀 𝑨𝒀𝑨𝑵𝑶 
-                    <span>blackwolf</span>
-                </h1>
-
-                <p class="hero-subtitle">
-                    مطور يقدم كل م له علاقه ب التخريب، الادوات، البوتات، الزرف. 
-                </p>
-
-                <p class="hero-quote">
-                   إِنَّ الَّذِينَ يَرْمُونَ الْمُحْصَنَاتِ الْغَافِلَاتِ الْمُؤْمِنَاتِ لُعِنُوا فِي الدُّنْيَا وَالْآخِرَةِ وَلَهُمْ عَذَابٌ عَظِيم
-                </p>
-
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">استكشف مشاريعي</a>
-                    <a href="#contact" class="btn btn-outline">تواصل معي</a>
-                </div>
-            </div>
-
-            <div class="hero-image reveal">
-                <img
-                    src="https://files.catbox.moe/cauk3l.jpeg"
-                    alt="AYANO BLACKWOLF"
-                >
-            </div>
-
-        </div>
-    </div>
+<div class="container">
+<div class="hero-content">
+<div class="hero-text reveal">
+<div class="hero-tag">Welcome to my World</div>
+<h1>🍀 𝑨𝒀𝑨𝑵𝑶 <span>blackwolf</span></h1>
+<p class="hero-subtitle">مطور مهتم بالتكنولوجيا والبرمجة وتطوير البوتات والأدوات والمواقع.</p>
+<p class="hero-quote">إِنَّ الَّذِينَ يَرْمُونَ الْمُحْصَنَاتِ الْغَافِلَاتِ الْمُؤْمِنَاتِ لُعِنُوا فِي الدُّنْيَا وَالْآخِرَةِ وَلَهُمْ عَذَابٌ عَظِيمٌ</p>
+<div class="hero-buttons">
+<a href="#projects" class="btn btn-primary">استكشف مشاريعي</a>
+<a href="#contact" class="btn btn-outline">تواصل معي</a>
+</div>
+</div>
+<div class="hero-image reveal">
+<img src="https://files.catbox.moe/cauk3l.jpeg" alt="AYANO BLACKWOLF">
+</div>
+</div>
+</div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
-    <div class="container">
-        <h2 class="section-title reveal">من <span>أنا؟</span></h2>
-        <p class="section-desc reveal">نبذة بسيطة عن عملي</p>
-
-        <div class="about-grid">
-            <div class="panel reveal">
-                <h3>🍀 من أكون؟</h3>
-                <p>
-                    أنا AYANO / BLACKWOLF، مطور مهتم بالتكنولوجيا
-                    والبرمجة , بقدم سكربتات بوتات، زرف، تبنيد، تخريب. 
-                </p>
-            </div>
-
-            <div class="panel reveal">
-                <h3>🍀 رؤيتي</h3>
-                <p>
-                    هدفي هو توفير ادوات تبنيد وزرف ونشر سكربتات بوتات. 
-                </p>
-            </div>
-        </div>
-    </div>
+<div class="container">
+<h2 class="section-title reveal">من <span>أنا؟</span></h2>
+<p class="section-desc reveal">نبذة بسيطة عن عملي</p>
+<div class="about-grid">
+<div class="panel reveal"><h3>🍀 من أكون؟</h3><p>أنا AYANO / BLACKWOLF، مطور مهتم بالتكنولوجيا والبرمجة وتطوير البوتات والمشاريع الرقمية.</p></div>
+<div class="panel reveal"><h3>🍀 رؤيتي</h3><p>هدفي هو تطوير أدوات ومشاريع مفيدة ونشر المعرفة البرمجية وتقديم حلول.</p></div>
+</div>
+</div>
 </section>
 
-<!-- TECH STACK -->
 <section id="stack">
-    <div class="container">
-        <h2 class="section-title reveal">التقنيات <span>المستخدمة</span></h2>
-        <p class="section-desc reveal">أهم لغات البرمجة والأدوات التي أعمل بها.</p>
-
-        <div class="tech-grid">
-            <div class="tech-card reveal">
-                <div class="tech-icon">🟨</div>
-                <h3>JavaScript</h3>
-                <p>لغة برمجة</p>
-            </div>
-
-            <div class="tech-card reveal">
-                <div class="tech-icon">🟩</div>
-                <h3>Node.js</h3>
-                <p>بيئة تشغيل الخلفية</p>
-            </div>
-
-            <div class="tech-card reveal">
-                <div class="tech-icon">🌐</div>
-                <h3>HTML5</h3>
-                <p>بناء صفحات الويب</p>
-            </div>
-
-            <div class="tech-card reveal">
-                <div class="tech-icon">🎨</div>
-                <h3>CSS3</h3>
-                <p>تصميم وتنسيق المواقع</p>
-            </div>
-
-            <div class="tech-card reveal">
-                <div class="tech-icon">📱</div>
-                <h3>Baileys</h3>
-                <p>برمجة بوتات WhatsApp</p>
-            </div>
-
-            <div class="tech-card reveal">
-                <div class="tech-icon">🐙</div>
-                <h3>GitHub</h3>
-                <p>إدارة الأكواد والمشاريع</p>
-            </div>
-
-            <div class="tech-card reveal">
-                <div class="tech-icon">⚡</div>
-                <h3>APIs</h3>
-                <p>ربط ودمج الخدمات</p>
-            </div>
-
-            <div class="tech-card reveal">
-                <div class="tech-icon">🖥️</div>
-                <h3>Termux</h3>
-                <p>بيئة تطوير وتشغيل</p>
-            </div>
-        </div>
-    </div>
+<div class="container">
+<h2 class="section-title reveal">التقنيات <span>المستخدمة</span></h2>
+<p class="section-desc reveal">أهم لغات البرمجة والأدوات التي أعمل بها.</p>
+<div class="tech-grid">
+<div class="tech-card reveal"><div class="tech-icon">🟨</div><h3>JavaScript</h3><p>لغة برمجة</p></div>
+<div class="tech-card reveal"><div class="tech-icon">🟩</div><h3>Node.js</h3><p>بيئة تشغيل الخلفية</p></div>
+<div class="tech-card reveal"><div class="tech-icon">🌐</div><h3>HTML5</h3><p>بناء صفحات الويب</p></div>
+<div class="tech-card reveal"><div class="tech-icon">🎨</div><h3>CSS3</h3><p>تصميم وتنسيق المواقع</p></div>
+<div class="tech-card reveal"><div class="tech-icon">📱</div><h3>Baileys</h3><p>برمجة بوتات WhatsApp</p></div>
+<div class="tech-card reveal"><div class="tech-icon">🐙</div><h3>GitHub</h3><p>إدارة الأكواد والمشاريع</p></div>
+<div class="tech-card reveal"><div class="tech-icon">⚡</div><h3>APIs</h3><p>ربط ودمج الخدمات</p></div>
+<div class="tech-card reveal"><div class="tech-icon">🖥️</div><h3>Termux</h3><p>بيئة تطوير وتشغيل</p></div>
+</div>
+</div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
-    <div class="container">
-        <h2 class="section-title reveal">مستوى <span>المهارات</span></h2>
-        <p class="section-desc reveal">نظرة عامة على مجالات اهتمامي وتطوري البرمجي.</p>
-
-        <div class="skills">
-            <div class="skill reveal">
-                <div class="skill-info">
-                    <span>JavaScript</span>
-                    <span>قيد التعلم والتطوير</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-width="75%"></div>
-                </div>
-            </div>
-
-            <div class="skill reveal">
-                <div class="skill-info">
-                    <span>Node.js</span>
-                    <span>قيد التعلم والتطوير</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-width="70%"></div>
-                </div>
-            </div>
-
-            <div class="skill reveal">
-                <div class="skill-info">
-                    <span>HTML & CSS</span>
-                    <span>قيد التعلم والتطوير</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-width="80%"></div>
-                </div>
-            </div>
-
-            <div class="skill reveal">
-                <div class="skill-info">
-                    <span>API Integration</span>
-                    <span>قيد التعلم والتطوير</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-width="65%"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="container">
+<h2 class="section-title reveal">مستوى <span>المهارات</span></h2>
+<p class="section-desc reveal">نظرة عامة على مجالات اهتمامي وتطوري البرمجي.</p>
+<div class="skills">
+<div class="skill reveal"><div class="skill-info"><span>JavaScript</span><span>قيد التعلم والتطوير</span></div><div class="skill-bar"><div class="skill-progress" data-width="75%"></div></div></div>
+<div class="skill reveal"><div class="skill-info"><span>Node.js</span><span>قيد التعلم والتطوير</span></div><div class="skill-bar"><div class="skill-progress" data-width="70%"></div></div></div>
+<div class="skill reveal"><div class="skill-info"><span>HTML & CSS</span><span>قيد التعلم والتطوير</span></div><div class="skill-bar"><div class="skill-progress" data-width="80%"></div></div></div>
+<div class="skill reveal"><div class="skill-info"><span>API Integration</span><span>قيد التعلم والتطوير</span></div><div class="skill-bar"><div class="skill-progress" data-width="65%"></div></div></div>
+</div>
+</div>
 </section>
 
-<!-- ARCHITECTURE -->
 <section id="architecture">
-    <div class="container">
-        <h2 class="section-title reveal">مراحل <span>تطوير المشاريع</span></h2>
-        <p class="section-desc reveal">الطريقة التي أتبعها في بناء وتنفيذ المشاريع.</p>
-
-        <div class="arch-grid">
-            <div class="arch-card reveal">
-                <div class="number">01</div>
-                <h3>التخطيط</h3>
-                <p>فهم المتطلبات وتنظيم هيكل المشروع وتحديد طريقة العمل.</p>
-            </div>
-
-            <div class="arch-card reveal">
-                <div class="number">02</div>
-                <h3>التطوير</h3>
-                <p>برمجة الخصائص باستخدام أكواد منظمة وحلول عملية.</p>
-            </div>
-
-            <div class="arch-card reveal">
-                <div class="number">03</div>
-                <h3>التحسين</h3>
-                <p>اختبار المشروع وإصلاح الأخطاء وتحسين الأداء والاستقرار.</p>
-            </div>
-        </div>
-    </div>
+<div class="container">
+<h2 class="section-title reveal">مراحل <span>تطوير المشاريع</span></h2>
+<p class="section-desc reveal">الطريقة التي أتبعها في بناء وتنفيذ المشاريع.</p>
+<div class="arch-grid">
+<div class="arch-card reveal"><div class="number">01</div><h3>التخطيط</h3><p>فهم المتطلبات وتنظيم هيكل المشروع وتحديد طريقة العمل.</p></div>
+<div class="arch-card reveal"><div class="number">02</div><h3>التطوير</h3><p>برمجة الخصائص باستخدام أكواد منظمة وحلول عملية.</p></div>
+<div class="arch-card reveal"><div class="number">03</div><h3>التحسين</h3><p>اختبار المشروع وإصلاح الأخطاء وتحسين الأداء والاستقرار.</p></div>
+</div>
+</div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
-    <div class="container">
-        <h2 class="section-title reveal">أهم <span>مشاريعي</span></h2>
-        <p class="section-desc reveal">بعض المشاريع والأفكار التي أعمل على تطويرها.</p>
-
-        <div class="project-card reveal">
-            <div class="project-visual">
-                HUGO
-            </div>
-
-            <div class="project-info">
-                <h3>HUGO BOT🍀</h3>
-                <p>
-                    بوت واتس للنقابات والحمايه مع ازرار. 
-                </p>
-
-                <div class="tags">
-                    <span class="tag">NODE.JS</span>
-                    <span class="tag">BAILEYS</span>
-                    <span class="tag">JAVASCRIPT</span>
-                    <span class="tag">API</span>
-                </div>
-
-                <a href="https://whatsapp.com/channel/0029Vb8QDHBCcW4wwwhAk03k" target="_blank" rel="noopener" class="btn btn-outline">
-                    قريباً
-                </a>
-            </div>
-        </div>
-    </div>
+<div class="container">
+<h2 class="section-title reveal">أهم <span>مشاريعي</span></h2>
+<p class="section-desc reveal">بعض المشاريع والأفكار التي أعمل على تطويرها.</p>
+<div class="project-card reveal">
+<div class="project-visual">HUGO</div>
+<div class="project-info">
+<h3>HUGO BOT🍀</h3>
+<p>بوت واتساب للنقابات والحماية مع أزرار وخصائص متعددة.</p>
+<div class="tags"><span class="tag">NODE.JS</span><span class="tag">BAILEYS</span><span class="tag">JAVASCRIPT</span><span class="tag">API</span></div>
+<a href="https://whatsapp.com/channel/0029Vb8QDHBCcW4wwwhAk03k" target="_blank" rel="noopener" class="btn btn-outline">زيارة القناة</a>
+</div>
+</div>
+</div>
 </section>
 
-<!-- NEXORA -->
 <section id="nexora">
-    <div class="container">
-        <div class="nexora reveal">
-            <h3>Ayano؟</h3>
-            <p>
-                العمر: 16 سنة
-                <br>
-                الدولة: Egypt 🇪🇬
-                <br>
-                Telegram:
-                <a href="https://t.me/black_wolfri" target="_blank" rel="noopener" style="color:var(--red-light)" dir="ltr">@black_wolfri</a>
-                <br>
-                WhatsApp:
-                <a href="https://wa.me/201282322267" target="_blank" rel="noopener" style="color:var(--red-light)" dir="ltr">+201282322267</a>
-            </p>
-        </div>
-    </div>
+<div class="container">
+<div class="nexora reveal">
+<h3>Ayano؟</h3>
+<p>
+العمر: 16 سنة<br>
+الدولة: Egypt 🇪🇬<br>
+Telegram: <a href="https://t.me/black_wolfri" target="_blank" rel="noopener" style="color:var(--red-light)" dir="ltr">@black_wolfri</a><br>
+WhatsApp: <a href="https://wa.me/201282322267" target="_blank" rel="noopener" style="color:var(--red-light)" dir="ltr">+201282322267</a>
+</p>
+</div>
+</div>
 </section>
 
-<!-- CHANNEL -->
 <section id="my-channel">
-    <div class="container">
-        <div class="github-box reveal">
-            <h3>قناتي <span class="accent">الرسمية</span></h3>
-            <p>بوتات • أدوات • زرف • تخريب</p>
-
-            <a href="https://whatsapp.com/channel/0029Vb8QDHBCcW4wwwhAk03k" target="_blank" rel="noopener" class="btn btn-primary">
-                زيارة القناة
-            </a>
-        </div>
-    </div>
+<div class="container">
+<div class="github-box reveal">
+<h3>قناتي <span class="accent">الرسمية</span></h3>
+<p>بوتات • أدوات • تطوير وبرمجة • زرف وتخريب.</p>
+<a href="https://whatsapp.com/channel/0029Vb8QDHBCcW4wwwhAk03k" target="_blank" rel="noopener" class="btn btn-primary">زيارة القناة</a>
+</div>
+</div>
 </section>
 
-<!-- PHILOSOPHY -->
 <section>
-    <div class="container">
-        <div class="philosophy reveal">
-            <blockquote>
-                 الأحزاب: ٥٦
-                <br>
-                <span>﷽ ﴿ إِنَّ اللَّهَ وَمَلائِكَتَهُ يُصَلّونَ عَلَى النَّبِيِّ يا أَيُّهَا الَّذينَ آمَنوا صَلّوا عَلَيهِ وَسَلِّموا تَسليمًا ﴾</span>
-            </blockquote>
-        </div>
-    </div>
+<div class="container">
+<div class="philosophy reveal">
+<blockquote>الأحزاب: ٥٦<br><span>﴿ إِنَّ اللَّهَ وَمَلائِكَتَهُ يُصَلّونَ عَلَى النَّبِيِّ يا أَيُّهَا الَّذينَ آمَنوا صَلّوا عَلَيهِ وَسَلِّموا تَسليمًا ﴾</span></blockquote>
+</div>
+</div>
 </section>
 
-<!-- CONTACT -->
+<!-- QURAN LIBRARY -->
+<section id="quran" class="quran-section">
+<div class="container">
+<div class="quran-heading">
+<small>HOLY QURAN</small>
+<h2>المصحف <span>الشريف</span></h2>
+<p>مكتبة القرآن الكريم والاستماع إلى تلاوات القراء</p>
+</div>
+<div class="quran-app">
+<div class="quran-stars" id="starsContainer"></div>
+<div class="quran-header"><h2>﷽</h2><p>اختر القارئ للاستماع إلى القرآن الكريم</p></div>
+<div class="quran-search"><input type="text" id="searchInput" placeholder="ابحث عن قارئ..."></div>
+<h3 class="quran-title">🎙️ اختر القارئ</h3>
+<div class="readers-grid" id="readersGrid"></div>
+<div class="surahs-container" id="surahsContainer">
+<button class="back-btn" id="backBtn">← العودة للقراء</button>
+<p class="selected-reader-info" id="selectedReaderInfo"></p>
+<div class="surahs-grid" id="surahsGrid"></div>
+</div>
+</div>
+</div>
+</section>
+
 <section id="contact">
-    <div class="container">
-        <h2 class="section-title reveal">تواصل <span>معي</span></h2>
-        <p class="section-desc reveal">للتواصل تيلي وواتس.</p>
-
-        <div class="contact-grid">
-
-            <a href="https://t.me/black_wolfri"
-               target="_blank"
-               rel="noopener"
-               class="contact-card reveal">
-
-                <div class="contact-icon">✈</div>
-
-                <div>
-                    <h3>TELEGRAM</h3>
-                    <p>@black_wolfri</p>
-                </div>
-            </a>
-
-            <a href="https://wa.me/201282322267"
-               target="_blank"
-               rel="noopener"
-               class="contact-card reveal">
-
-                <div class="contact-icon">◉</div>
-
-                <div>
-                    <h3>WHATSAPP</h3>
-                    <p>+20 128 232 2267</p>
-                </div>
-            </a>
-
-        </div>
-    </div>
+<div class="container">
+<h2 class="section-title reveal">تواصل <span>معي</span></h2>
+<p class="section-desc reveal">للتواصل واتس وتيلي.</p>
+<div class="contact-grid">
+<a href="https://t.me/black_wolfri" target="_blank" rel="noopener" class="contact-card reveal"><div class="contact-icon">✈</div><div><h3>TELEGRAM</h3><p>@black_wolfri</p></div></a>
+<a href="https://wa.me/201282322267" target="_blank" rel="noopener" class="contact-card reveal"><div class="contact-icon">◉</div><div><h3>WHATSAPP</h3><p>+20 128 232 2267</p></div></a>
+</div>
+</div>
 </section>
-
 </main>
 
-<!-- FOOTER -->
+<div class="audio-player hidden" id="audioPlayer">
+<span class="player-info" id="playerInfo"></span>
+<audio id="audioElement" controls preload="none"></audio>
+<button class="close-player" id="closePlayer">✕</button>
+</div>
+
 <footer>
-    <div class="container">
-        <h4>🍀 AYANO / BLACKWOLF</h4>
-
-        <p class="sub">
-            مطور • بوتات • ادوات • تخريب • تطوير ويب
-        </p>
-
-        <p class="qt">"صلي علي النبي"</p>
-
-        <p class="copyright">
-            © 2026 AYANO / BLACKWOLF
-            <br>
-            جميع الحقوق محفوظة.
-        </p>
-    </div>
+<div class="container">
+<h4>🍀 AYANO / BLACKWOLF</h4>
+<p class="sub">مطور • بوتات • أدوات • تطوير ويب</p>
+<p class="qt">"صلي على النبي"</p>
+<p class="copyright">© 2026 AYANO / BLACKWOLF<br>جميع الحقوق محفوظة.</p>
+</div>
 </footer>
 
 <script>
-// القائمة المتجاوبة
-const menuBtn = document.getElementById('menuBtn');
-const navLinks = document.getElementById('navLinks');
-
-menuBtn.addEventListener('click', () => {
+/* PORTFOLIO */
+const menuBtn=document.getElementById('menuBtn');
+const navLinks=document.getElementById('navLinks');
+menuBtn.addEventListener('click',()=>{
     navLinks.classList.toggle('active');
-    menuBtn.textContent =
-        navLinks.classList.contains('active') ? '✕' : '☰';
+    menuBtn.textContent=navLinks.classList.contains('active')?'✕':'☰';
 });
-
-// إغلاق القائمة بعد الانتقال
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
+document.querySelectorAll('.nav-links a').forEach(link=>{
+    link.addEventListener('click',()=>{
         navLinks.classList.remove('active');
-        menuBtn.textContent = '☰';
+        menuBtn.textContent='☰';
     });
 });
-
-// تأثير ظهور العناصر أثناء التمرير
-const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
+const revealObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
             entry.target.classList.add('show');
             revealObserver.unobserve(entry.target);
         }
     });
-}, {
-    threshold: 0.12
-});
-
-document.querySelectorAll('.reveal').forEach(element => {
-    revealObserver.observe(element);
-});
-
-// تحريك أشرطة المهارات
-const skillObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const bar = entry.target.querySelector('.skill-progress');
-
-            if (bar) {
-                bar.style.width = bar.dataset.width;
-            }
-
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+const skillObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            const bar=entry.target.querySelector('.skill-progress');
+            if(bar)bar.style.width=bar.dataset.width;
             skillObserver.unobserve(entry.target);
         }
     });
-}, {
-    threshold: 0.3
-});
+},{threshold:.3});
+document.querySelectorAll('.skill').forEach(el=>skillObserver.observe(el));
 
-document.querySelectorAll('.skill').forEach(skill => {
-    skillObserver.observe(skill);
-});
+/* QURAN DATA AND PLAYER */
+(function(){
+const SURAHS=[
+'الفاتحة','البقرة','آل عمران','النساء','المائدة','الأنعام','الأعراف','الأنفال','التوبة','يونس',
+'هود','يوسف','الرعد','إبراهيم','الحجر','النحل','الإسراء','الكهف','مريم','طه',
+'الأنبياء','الحج','المؤمنون','النور','الفرقان','الشعراء','النمل','القصص','العنكبوت','الروم',
+'لقمان','السجدة','الأحزاب','سبأ','فاطر','يس','الصافات','ص','الزمر','غافر',
+'فصلت','الشورى','الزخرف','الدخان','الجاثية','الأحقاف','محمد','الفتح','الحجرات','ق',
+'الذاريات','الطور','النجم','القمر','الرحمن','الواقعة','الحديد','المجادلة','الحشر','الممتحنة',
+'الصف','الجمعة','المنافقون','التغابن','الطلاق','التحريم','الملك','القلم','الحاقة','المعارج',
+'نوح','الجن','المزمل','المدثر','القيامة','الإنسان','المرسلات','النبأ','النازعات','عبس',
+'التكوير','الانفطار','المطففين','الانشقاق','البروج','الطارق','الأعلى','الغاشية','الفجر','البلد',
+'الشمس','الليل','الضحى','الشرح','التين','العلق','القدر','البينة','الزلزلة','العاديات',
+'القارعة','التكاثر','العصر','الهمزة','الفيل','قريش','الماعون','الكوثر','الكافرون','النصر',
+'المسد','الإخلاص','الفلق','الناس'
+];
 
-// إغلاق القائمة عند الضغط خارجها
-document.addEventListener('click', event => {
-    if (
-        !navLinks.contains(event.target) &&
-        !menuBtn.contains(event.target)
-    ) {
-        navLinks.classList.remove('active');
-        menuBtn.textContent = '☰';
+const READERS_RAW = [
+{ name:'إبراهيم الأخضر',server:'https://server6.mp3quran.net/akdr/',surahCount:114 },
+{ name:'إبراهيم الجبرين',server:'https://server6.mp3quran.net/jbreen/',surahCount:107 },
+{ name:'إبراهيم الجرمي',server:'https://server11.mp3quran.net/jormy/',surahCount:114 },
+{ name:'إبراهيم الدوسري',server:'https://server10.mp3quran.net/ibrahim_dosri/Rewayat-Hafs-A-n-Assem/',surahCount:114 },
+{ name:'إبراهيم السعدان',server:'https://server10.mp3quran.net/IbrahemSadan/',surahCount:50 },
+{ name:'إبراهيم الشهري',server:'https://server16.mp3quran.net/Ibrahim-Al-Shahri/Rewayat-Hafs-A-n-Assem/',surahCount:113 },
+{ name:'إدريس أبكر',server:'https://server6.mp3quran.net/abkr/',surahCount:114 },
+{ name:'أحمد الحذيفي',server:'https://server8.mp3quran.net/ahmad_huth/',surahCount:110 },
+{ name:'أحمد الطرابلسي',server:'https://server10.mp3quran.net/trabulsi/',surahCount:114 },
+{ name:'أحمد طالب بن حميد',server:'https://server16.mp3quran.net/a_binhameed/Rewayat-Hafs-A-n-Assem/',surahCount:107 },
+{ name:'أحمد عامر',server:'https://server10.mp3quran.net/Aamer/',surahCount:114 },
+{ name:'أخيل عبدالحي روا',server:'https://server12.mp3quran.net/malaysia/akil/',surahCount:4 },
+{ name:'أستاذ زامري',server:'https://server12.mp3quran.net/malaysia/zamri/',surahCount:7 },
+{ name:'أكرم العلاقمي',server:'https://server9.mp3quran.net/akrm/',surahCount:114 },
+{ name:'الحسيني العزازي',server:'https://server8.mp3quran.net/3zazi/',surahCount:57 },
+{ name:'الدوكالي محمد العالم',server:'https://server7.mp3quran.net/dokali/',surahCount:114 },
+{ name:'الزين محمد أحمد',server:'https://server9.mp3quran.net/alzain/',surahCount:114 },
+{ name:'العشري عمران',server:'https://server9.mp3quran.net/omran/',surahCount:113 },
+{ name:'العيون الكوشي',server:'https://server11.mp3quran.net/koshi/',surahCount:114 },
+{ name:'الفاتح محمد الزبير',server:'https://server6.mp3quran.net/fateh/',surahCount:114 },
+{ name:'القارئ ياسين',server:'https://server11.mp3quran.net/qari/',surahCount:114 },
+{ name:'الوليد الشمسان',server:'https://server14.mp3quran.net/shamsan/Rewayat-Hafs-A-n-Assem/',surahCount:71 },
+{ name:'بندر بليله',server:'https://server6.mp3quran.net/balilah/',surahCount:114 },
+{ name:'توفيق الصايغ',server:'https://server6.mp3quran.net/twfeeq/',surahCount:114 },
+{ name:'جمال الدين الزيلعي',server:'https://server11.mp3quran.net/zilaie/',surahCount:8 },
+{ name:'جمال شاكر عبدالله',server:'https://server6.mp3quran.net/jamal/',surahCount:114 },
+{ name:'جمعان العصيمي',server:'https://server6.mp3quran.net/jaman/',surahCount:114 },
+{ name:'جنيد آدم عبدالله',server:'https://server16.mp3quran.net/J-Abdullah/Rewayat-Hafs-A-n-Assem/',surahCount:114 },
+{ name:'حاتم فريد الواعر',server:'https://server11.mp3quran.net/hatem/',surahCount:114 },
+{ name:'حسن الدغريري',server:'https://server16.mp3quran.net/H-Aldaghriri/Rewayat-Hafs-A-n-Assem/',surahCount:114 },
+{ name:'حسين آل الشيخ',server:'https://server11.mp3quran.net/alshaik/',surahCount:59 },
+{ name:'حمد الدغريري',server:'https://server6.mp3quran.net/hamad/',surahCount:88 },
+{ name:'خالد الجليل',server:'https://server10.mp3quran.net/jleel/',surahCount:114 },
+{ name:'خالد الزيادي',server:'https://server16.mp3quran.net/K-Alzadi/Rewayat-Hafs-A-n-Assem/',surahCount:114 },
+{ name:'خالد الشريمي',server:'https://server12.mp3quran.net/shoraimy/',surahCount:73 },
+{ name:'خالد القحطاني',server:'https://server10.mp3quran.net/qht/',surahCount:114 },
+{ name:'خالد المهنا',server:'https://server11.mp3quran.net/mohna/',surahCount:114 },
+{ name:'رضية عبدالرحمن',server:'https://server12.mp3quran.net/malaysia/rziah/',surahCount:4 },
+{ name:'رقية سولونق',server:'https://server12.mp3quran.net/malaysia/rogiah/',surahCount:1 },
+{ name:'سابينة مامات',server:'https://server12.mp3quran.net/malaysia/mamat/',surahCount:4 },
+{ name:'سعود الشريم',server:'https://server7.mp3quran.net/shuraym/',surahCount:114 },
+{ name:'سيدين عبدالرحمن',server:'https://server12.mp3quran.net/malaysia/sideen/',surahCount:4 },
+{ name:'طارق عبدالغني دعوب',server:'https://server10.mp3quran.net/tareq/',surahCount:114 },
+{ name:'عادل الكلباني',server:'https://server8.mp3quran.net/a_klb/',surahCount:114 },
+{ name:'عبدالإله بن عون',server:'https://server16.mp3quran.net/a_binaoun/Rewayat-Hafs-A-n-Assem/',surahCount:114 },
+{ name:'عبدالبديع غيلان',server:'https://server16.mp3quran.net/A-Ghailan/Rewayat-Hafs-A-n-Assem/',surahCount:114 },
+{ name:'عبدالرحمن السديس',server:'https://server7.mp3quran.net/sudais/',surahCount:114 },
+{ name:'عبدالرحمن السويّد',server:'https://server16.mp3quran.net/a_swaiyd/Rewayat-Hafs-A-n-Assem/',surahCount:107 },
+{ name:'عبدالرحمن بن عبدالرزاق البدر',server:'https://server16.mp3quran.net/A-AlBadr/Rewayat-Hafs-A-n-Assem/',surahCount:114 },
+{ name:'عبدالغني عبدالله',server:'https://server12.mp3quran.net/malaysia/abdulgani/',surahCount:13 },
+{ name:'عبدالله الكندري',server:'https://server10.mp3quran.net/Abdullahk/',surahCount:114 },
+{ name:'عبدالله القرافي',server:'https://server16.mp3quran.net/a_alqrafi/Rewayat-Hafs-A-n-Assem/',surahCount:114 },
+{ name:'عبدالله فهمي',server:'https://server12.mp3quran.net/malaysia/fhmi/',surahCount:4 },
+{ name:'عبد المجيب بنكيران',server:'https://server16.mp3quran.net/A-Benkirane/Rewayat-Warsh-A-n-Nafi/',surahCount:114 },
+{ name:'عثمان الأنصاري',server:'https://server11.mp3quran.net/Othmn/',surahCount:76 },
+{ name:'علي الحذيفي',server:'https://server7.mp3quran.net/huthify/',surahCount:114 },
+{ name:'عليجان قوري حمدان',server:'https://server16.mp3quran.net/Alijon/Rewayat-Hafs-A-n-Assem/',surahCount:114 },
+{ name:'فارس عباد',server:'https://server6.mp3quran.net/faris/',surahCount:114 },
+{ name:'ماجد الزامل',server:'https://server9.mp3quran.net/zaml/',surahCount:114 },
+{ name:'ماجد العنزي',server:'https://server8.mp3quran.net/majd_onazi/',surahCount:113 },
+{ name:'ماهر المعيقلي',server:'https://server12.mp3quran.net/maher/Almusshaf-Al-Mojawwad/',surahCount:114 },
+{ name:'ماهر شخاشيرو',server:'https://server10.mp3quran.net/shaksh/',surahCount:114 },
+{ name:'محمد الأيراوي',server:'https://server6.mp3quran.net/earawi/',surahCount:111 },
+{ name:'محمد البراك',server:'https://server13.mp3quran.net/braak/',surahCount:63 },
+{ name:'محمد الحافظ',server:'https://server12.mp3quran.net/malaysia/hafz/',surahCount:3 },
+{ name:'محمد الزبيدي',server:'https://server16.mp3quran.net/M-AlZubaidi/Rewayat-Hafs-A-n-Assem/',surahCount:114 },
+{ name:'محمد الطبلاوي',server:'https://server12.mp3quran.net/tblawi/Al-Mojawwad/',surahCount:114 },
+{ name:'محمد الفقيه',server:'https://server16.mp3quran.net/M_Alfaqih/Rewayat-Hafs-A-n-Assem/',surahCount:114 },
+{ name:'محمد اللحيدان',server:'https://server8.mp3quran.net/lhdan/',surahCount:114 },
+{ name:'محمد المحيسني',server:'https://server11.mp3quran.net/mhsny/',surahCount:114 },
+{ name:'محمد المنشد',server:'https://server10.mp3quran.net/monshed/',surahCount:110 },
+{ name:'محمد أيوب',server:'https://server16.mp3quran.net/ayyoub2/Rewayat-Hafs-A-n-Assem/',surahCount:114 },
+{ name:'محمد برهجي',server:'https://server16.mp3quran.net/M_Burhaji/Rewayat-Hafs-A-n-Assem/',surahCount:114 },
+{ name:'محمد جبريل',server:'https://server8.mp3quran.net/jbrl/',surahCount:114 },
+{ name:'محمد حفص علي',server:'https://server12.mp3quran.net/malaysia/hfs/',surahCount:5 },
+{ name:'محمد خير النور',server:'https://server12.mp3quran.net/malaysia/nor/',surahCount:4 },
+{ name:'محمد رشاد الشريف',server:'https://server10.mp3quran.net/rashad/',surahCount:114 },
+{ name:'محمد سايد',server:'https://server16.mp3quran.net/m_sayed/Rewayat-Warsh-A-n-Nafi/',surahCount:114 },
+{ name:'محمد صالح عالم شاه',server:'https://server12.mp3quran.net/shah/',surahCount:114 },
+{ name:'محمد صديق المنشاوي',server:'https://server10.mp3quran.net/minsh/Almusshaf-Al-Mo-lim/',surahCount:114 },
+{ name:'محمد عبدالحكيم سعيد العبدالله',server:'https://server9.mp3quran.net/abdullah/Rewayat-AlDorai-A-n-Al-Kisa-ai/',surahCount:114 },
+{ name:'محمد عبدالكريم',server:'https://server12.mp3quran.net/m_krm/Rewayat-Warsh-A-n-Nafi-Men-Tariq-Abi-Baker-Alasbahani/',surahCount:114 },
+{ name:'محمد عثمان خان',server:'https://server6.mp3quran.net/khan/',surahCount:114 },
+{ name:'محمود الرفاعي',server:'https://server11.mp3quran.net/mrifai/',surahCount:114 },
+{ name:'محمود الشيمي',server:'https://server10.mp3quran.net/sheimy/',surahCount:114 },
+{ name:'محمود خليل الحصري',server:'https://server13.mp3quran.net/husr/Rewayat-Qalon-A-n-Nafi/',surahCount:114 },
+{ name:'محمود علي البنا',server:'https://server8.mp3quran.net/bna/Almusshaf-Al-Mojawwad/',surahCount:114 },
+{ name:'معمر الأندونيسي',server:'https://server6.mp3quran.net/muamr/',surahCount:8 },
+{ name:'معيض الحارثي',server:'https://server8.mp3quran.net/harthi/',surahCount:114 },
+{ name:'مشاري العفاسي',server:'https://server8.mp3quran.net/afasy/',surahCount:114 },
+{ name:'مصطفى إسماعيل',server:'https://server8.mp3quran.net/mustafa/Almusshaf-Al-Mojawwad/',surahCount:114 },
+{ name:'مصطفى اللاهوني',server:'https://server6.mp3quran.net/lahoni/',surahCount:114 },
+{ name:'مصطفى رعد العزاوي',server:'https://server8.mp3quran.net/ra3ad/',surahCount:114 },
+{ name:'مفتاح السلطني',server:'https://server14.mp3quran.net/muftah_sultany/Rewayat_Ibn-Thakwan-A-n-Ibn-Amer/',surahCount:114 },
+{ name:'موسى بلال',server:'https://server11.mp3quran.net/bilal/',surahCount:114 },
+{ name:'ناصر العبيد',server:'https://server11.mp3quran.net/obaid/',surahCount:67 },
+{ name:'نورين محمد صديق',server:'https://server16.mp3quran.net/nourin_siddig/Rewayat-Aldori-A-n-Abi-Amr/',surahCount:114 },
+{ name:'واصل المذن',server:'https://server11.mp3quran.net/wasel/Rewayat-Hafs-A-n-Assem/',surahCount:9 },
+{ name:'وديع اليمني',server:'https://server6.mp3quran.net/wdee3/',surahCount:114 },
+{ name:'وشيار حيدر اربيلي',server:'https://server11.mp3quran.net/wishear/',surahCount:2 },
+{ name:'ياسر الدوسري',server:'https://server11.mp3quran.net/yasser/',surahCount:114 },
+{ name:'ياسر سلامة',server:'https://server12.mp3quran.net/salamah/Rewayat-Hafs-A-n-Assem/',surahCount:114 },
+{ name:'يوسف الدغوش',server:'https://server7.mp3quran.net/dgsh/',surahCount:26 },
+{ name:'يوسف العيدروس',server:'https://server16.mp3quran.net/Y_ALaidroos/Rewayat-Hafs-A-n-Assem/',surahCount:113 },
+{ name:'يوسف بن نوح أحمد',server:'https://server8.mp3quran.net/noah/',surahCount:114 }
+];
+
+const READERS=READERS_RAW.slice().sort((a,b)=>a.name.localeCompare(b.name,'ar'));
+const $=id=>document.getElementById(id);
+const readersGrid=$('readersGrid');
+const surahsContainer=$('surahsContainer');
+const surahsGrid=$('surahsGrid');
+const selectedReaderInfo=$('selectedReaderInfo');
+const searchInput=$('searchInput');
+const audioPlayer=$('audioPlayer');
+const audioElement=$('audioElement');
+const playerInfo=$('playerInfo');
+let selectedReader=null;
+let currentItem=null;
+
+function toast(message){
+    const old=document.querySelector('.quran-toast');
+    if(old)old.remove();
+    const el=document.createElement('div');
+    el.className='quran-toast';
+    el.textContent=message;
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),2800);
+}
+
+function createStars(){
+    const root=$('starsContainer');
+    for(let i=0;i<100;i++){
+        const star=document.createElement('i');
+        star.className='quran-star';
+        star.style.left=Math.random()*100+'%';
+        star.style.top=Math.random()*100+'%';
+        star.style.animationDelay=Math.random()*3+'s';
+        root.appendChild(star);
     }
-});
-</script>
+}
 
+function renderReaders(filter=''){
+    readersGrid.innerHTML='';
+    const filtered=READERS.filter(reader=>reader.name.includes(filter));
+    if(!filtered.length){
+        readersGrid.textContent='لم يتم العثور على قارئ مطابق.';
+        return;
+    }
+    filtered.forEach(reader=>{
+        const card=document.createElement('button');
+        card.type='button';
+        card.className='reader-card'+(selectedReader?.name===reader.name?' selected':'');
+        card.innerHTML='<div class="avatar">🎙️</div>';
+        const name=document.createElement('div');
+        name.className='reader-name';
+        name.textContent=reader.name;
+        const count=document.createElement('div');
+        count.className='surah-count';
+        count.textContent=reader.surahCount+' سورة';
+        card.append(name,count);
+        card.addEventListener('click',()=>selectReader(reader));
+        readersGrid.appendChild(card);
+    });
+}
+
+function selectReader(reader){
+    selectedReader=reader;
+    currentItem=null;
+    selectedReaderInfo.textContent='🎙️ '+reader.name+' — '+reader.surahCount+' سورة';
+    renderSurahs(reader);
+    surahsContainer.classList.add('active');
+    readersGrid.querySelectorAll('.reader-card').forEach(card=>{
+        card.classList.toggle('selected',card.querySelector('.reader-name')?.textContent===reader.name);
+    });
+    surahsContainer.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function renderSurahs(reader){
+    surahsGrid.innerHTML='';
+    for(let i=1;i<=Math.min(reader.surahCount,114);i++){
+        const item=document.createElement('button');
+        item.type='button';
+        item.className='surah-item';
+        const number=document.createElement('div');
+        number.className='surah-number';
+        number.textContent=i;
+        const name=document.createElement('div');
+        name.className='surah-name';
+        name.textContent=SURAHS[i-1];
+        item.append(number,name);
+        item.addEventListener('click',()=>playSurah(reader,i,SURAHS[i-1],item));
+        surahsGrid.appendChild(item);
+    }
+}
+
+function playSurah(reader,num,name,item){
+    if(currentItem)currentItem.classList.remove('playing');
+    currentItem=item;
+    item.classList.add('playing');
+    const url=reader.server+String(num).padStart(3,'0')+'.mp3';
+    audioElement.src=url;
+    audioPlayer.classList.remove('hidden');
+    playerInfo.innerHTML='';
+    const strong=document.createElement('strong');
+    strong.textContent=reader.name;
+    playerInfo.append(strong,document.createTextNode(' — سورة '+name));
+    audioElement.load();
+    audioElement.play().catch(()=>toast('اضغط زر التشغيل لبدء التلاوة'));
+}
+
+audioElement.addEventListener('error',()=>toast('تعذر تحميل هذا الملف الصوتي، جرّب قارئاً آخر.'));
+$('closePlayer').addEventListener('click',()=>{
+    audioElement.pause();
+    audioElement.removeAttribute('src');
+    audioElement.load();
+    audioPlayer.classList.add('hidden');
+    if(currentItem)currentItem.classList.remove('playing');
+    currentItem=null;
+});
+$('backBtn').addEventListener('click',()=>{
+    surahsContainer.classList.remove('active');
+    selectedReader=null;
+    renderReaders(searchInput.value.trim());
+});
+searchInput.addEventListener('input',()=>renderReaders(searchInput.value.trim()));
+
+createStars();
+renderReaders();
+})();
+</script>
 </body>
 </html>
